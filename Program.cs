@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 
 namespace Stopwatch
 {
@@ -21,10 +22,13 @@ namespace Stopwatch
 
             while (currentTime != time)
             {
+                Console.Clear();
+
                 currentTime++;
                 Console.WriteLine(currentTime);
-            }
 
+                Thread.Sleep(1000);
+            }
 
         }
     }
