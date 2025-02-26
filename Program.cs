@@ -33,7 +33,7 @@ namespace Stopwatch
             }
             else if (!Regex.IsMatch(value, @"^\d+[sm]$"))
             {
-                Console.WriteLine("Formato inválido!");
+                Console.WriteLine("Invalid Format!");
                 Console.ReadKey();
                 Menu();
                 return;
