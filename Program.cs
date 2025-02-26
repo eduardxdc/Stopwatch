@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 using System.Threading;
 
 namespace Stopwatch
@@ -15,26 +16,33 @@ namespace Stopwatch
             Console.Clear();
 
             Console.WriteLine("Welcome to the stopwatch! Select how long you want to count below:");
-            Console.WriteLine("");
+            Console.WriteLine();
 
-            Console.WriteLine("S => Seconds = 10s = 10 Seconds");
-            Console.WriteLine("M => Minutes = 1m = 1 Minute");
+            Console.WriteLine("S => Seconds (ex: 10s = 10 Seconds)");
+            Console.WriteLine("M => Minutes (ex: 1m = 1 Minute)");
             Console.WriteLine("E => Exit");
 
-            Console.WriteLine("");
+            Console.WriteLine();
             Console.Write("Enter your choice: ");
 
             string value = Console.ReadLine().ToLower();
+
+            if (value == "e")
+            {
+                System.Environment.Exit(0);
+            }
+            else if (!Regex.IsMatch(value, @"^\d+[sm]$"))
+            {
+                Console.WriteLine("Formato inválido!");
+                Console.ReadKey();
+                Menu();
+                return;
+            }
+
             char type = char.Parse(value.Substring(value.Length - 1, 1));
             int time = int.Parse(value.Substring(0, value.Length - 1));
 
-            int multiplier = 1;
-
-            if (type == 'm')
-                multiplier = 60;
-
-            if (time == 'e')
-                System.Environment.Exit(0);
+            int multiplier = type == 'm' ? 60 : 1;
 
             PreStart(time * multiplier);
         }
