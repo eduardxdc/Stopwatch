@@ -3,6 +3,8 @@
 
 This project (**console-app**) is a stopwatch made in **C#**, using thread and sleep, creating and calling functions, while loop, IF conditional structure, regex, substring, conversions using parse and also text input and output with string interpolation.
 
+https://github.com/user-attachments/assets/6baf0177-936d-4e6a-ba91-9150bae999c0
+
 ## Table of Contents
 
 - [Installations](#installations)
