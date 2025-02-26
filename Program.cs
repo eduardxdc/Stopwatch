@@ -12,12 +12,11 @@ namespace Stopwatch
 
         static void Menu()
         {
-            Start();
+            Start(5);
         }
 
-        static void Start()
+        static void Start(int time)
         {
-            int time = 10;
             int currentTime = 0;
 
             while (currentTime != time)
@@ -29,6 +28,11 @@ namespace Stopwatch
 
                 Thread.Sleep(1000);
             }
+
+            Console.Clear();
+            Console.Write("Stopwatch Finish!");
+            Thread.Sleep(2500);
+
 
         }
     }
